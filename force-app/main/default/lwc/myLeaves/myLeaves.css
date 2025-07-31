@@ -1,0 +1,62 @@
+.card{
+   background-color: #ffffff;
+   border-radius: 6px;
+   box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.3);
+   border: solid 1px #e1ecfb;
+   height:35px;
+   margin: 0px 0px;
+   padding: 10px 32px;
+    text-align: center;
+   font-size: 14px ;
+   font-style: bold; 
+
+}
+
+.card-headings p{
+    text-align:left; 
+  font-family: SalesforceSans;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.38px;
+  color: var(--flat-grey-5);
+  /* padding:20px 5px 0px 5px;  */
+  /* top,right,button,left */
+
+  /* height:80px; */
+     }
+     .card-heading p{
+        text-align:left; 
+      font-family: SalesforceSans;
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: 0.38px;
+      color: var(--flat-grey-5);
+      padding:20px 5px 0px 5px; 
+      /* top,right,button,left */
+    
+      /* height:80px; */
+         }
+
+
+     .card-data 
+     {
+        background-color: #ffffff;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.3);
+        border: solid 1px #e1ecfb;
+        height:80px;
+        margin: 5px 0px;
+       
+        padding-left:16px;
+   /* padding-right:10px; */
+    /* padding: 5px 0px; */
+        text-align: left;
+        font-size: 14px ;
+        font-style: bold;
+     }

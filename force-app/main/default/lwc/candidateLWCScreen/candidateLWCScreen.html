@@ -1,0 +1,124 @@
+<template>
+   
+    <template if:true={showDetails}>
+        <div class="backgroundImg" style={getBackgroundImage} >
+        <h1
+            style="text-align: center; font-family:serif; font-size: 30px;  font-weight: 200;  background:linear-gradient(90deg, rgba(39,181,116,1) 35%, rgba(10,115,186,1) 100%); border:1px solid #010a0a;">
+            Candidate Details
+        </h1><br />
+
+        <lightning-button class="slds-m-right_small" variant="brand" label="New" type="text"
+            onclick={createNewRecord}></lightning-button>
+            <br />
+        <template if:true={canList}>
+            <lightning-datatable data={canList} columns={columns} onrowaction={handleRowAction} key-field="Id"></lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+        </div>
+    </template>
+
+    <!---Created records to database-->
+    <template if:true={showCreate}>
+        <div class="round3">
+            <h1
+                style="text-align: center; font-family:serif; font-size: 22px; color:black; background:linear-gradient(90deg, rgba(39,181,116,1) 35%, rgba(10,115,186,1) 100%); border:1px solid #010a0a; ">
+                Create New Candidate Record</h1>
+            <br />
+            <lightning-card>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                    <lightning-input label="Candidate Name" placeholder="Candidate Name" pattern="[A-Za-z ]*"
+                        message-when-pattern-mismatch="Please enter a alphabet" required  onchange={Namehandler}
+                       ></lightning-input> 
+                       </lightning-layout-item>
+
+                       <!-- onchange={Namehandler} -->
+                       <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                            <lightning-input label="Candidate Id" placeholder="Enter a Candidate ID" pattern="[0-9]+"
+                            onchange={IDhandler}
+                                message-when-pattern-mismatch="Please enter a valid Candidate ID" required
+                                ></lightning-input>
+                        </lightning-layout-item>
+
+                        <!-- onchange={IDhandler} -->
+
+                     <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                        <lightning-input type="email" label="Email" placeholder="Enter a Email"
+                            pattern="[A-Za-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}$" 
+                            message-when-pattern-mismatch="Please enter a valid email" required onchange={emailhandler}
+                           ></lightning-input>
+                    </lightning-layout-item>
+
+<!--  onchange={emailhandler} -->
+                    <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                        <lightning-input label="Phone Number" placeholder="Enter a Phone Number" pattern="[0-9]+"
+                            min-length='10' max-length='10'
+                            message-when-pattern-mismatch="Please enter a valid Phone number" required onchange={mobilehandler}
+                           ></lightning-input>
+                    </lightning-layout-item>
+                    
+                    <!--  onchange={mobilehandler} -->
+                    <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                    <lightning-input label="Work Experience Years" placeholder ="Enter a experience years"
+                    pattern="[0-9]+" onchange={exphandler}
+                       message-when-pattern-mismatch="Please enter a valid number" required ></lightning-input>
+</lightning-layout-item>
+
+<!--  onchange={exphandler}-->
+<lightning-layout-item size="12" small-device-size="5" medium-device-size="6" large-device-size="6" padding="around-small">
+    <!-- <template if:true={StatusValues.data}> -->
+    <lightning-combobox required label="Application Status" value={ApplicationStatus}  options={StatusValues.data.values}></lightning-combobox>
+  <!-- </template> -->
+</lightning-layout-item> 
+<!-- onchange={ApplicationStatusType} -->
+                    <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                        <lightning-input label="Qualifications" placeholder="Qualifications" pattern="[A-Za-z ]*"
+                            message-when-pattern-mismatch="Please enter a alphabet" required onchange={qualhandler}
+                           ></lightning-input>
+                    </lightning-layout-item>
+                    <!-- onchange={qualhandler} -->
+                    <lightning-layout-item size="12" small-device-size="5"  medium-device-size="6" large-device-size="6" padding="around-small">
+                        <lightning-input label="Address" placeholder="Address" pattern="[A-Za-z ]*"
+                            message-when-pattern-mismatch="Please enter a alphabet" required onchange={Addhandler}
+                            ></lightning-input>
+                    </lightning-layout-item>
+                    <!-- onchange={Addhandler} -->
+
+
+
+            </lightning-layout> 
+            <div class="slds-button-group slds-align_absolute-center" role="group" >
+                <lightning-button label="Save" variant="brand" onclick={createReqestRecord} ></lightning-button>&nbsp;&nbsp;
+                <lightning-button label="Cancel" variant="destructive" onclick={gobackview}  style="padding: 10px" title="Non-primary action" ></lightning-button>
+              </div>
+        </lightning-card>
+        </div>
+    </template>
+
+
+<!--viewfrom-->
+<template if:true={viewmode}>
+    <div class="round3">
+  
+    <h2 style="text-align: center; font-family:serif; font-size: 22px; color:black; background:linear-gradient(90deg, rgba(39,181,116,1) 35%, rgba(10,115,186,1) 100%); border:1px solid #010a0a; " >Advance Salary Details</h2><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
+      
+      <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" small-device-size="5" medium-device-size="6" large-device-size="6" padding="around-small">
+          <lightning-input label="Request ID" type="text" value={Name}  disabled></lightning-input>
+          </lightning-layout-item>
+          </lightning-layout>
+          </div>
+          <div class="slds-button-group slds-align_absolute-center" role="group" >
+            <lightning-button label="Close" variant="destructive" onclick={closewindowpageviewrecord} ></lightning-button> &nbsp;&nbsp;
+            <template if:true={editbuttonshow}>
+            <lightning-button label="Edit" variant="brand" onclick={edithandler}  ></lightning-button> &nbsp;&nbsp;
+        </template>
+    
+    </div>
+   </div>
+          </template>
+       
+</template>

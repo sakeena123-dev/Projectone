@@ -1,0 +1,76 @@
+<template>
+		 <lightning-card>
+     <lightning-datatable columns={columns} data={myleavesdata}  key-field='id'></lightning-datatable>
+    </lightning-card>
+		<!----<div>
+				<lightning-layout multiple-rows  class="card">
+						<lightning-layout-item  size="2"   class="card-headings" >
+								<p  style="padding-left:2px;">Request Id</p>
+						</lightning-layout-item >
+						<lightning-layout-item  size="2"  class="card-headings">
+								<p>From Date</p>
+						</lightning-layout-item>
+						<lightning-layout-item  size="2"  class="card-headings">
+								<p>To Date</p>
+						</lightning-layout-item>
+						<lightning-layout-item  size="2"  class="card-headings">
+								<p>Reason</p>
+						</lightning-layout-item>
+						<lightning-layout-item  size="2"  class="card-headings">
+								<p>Status</p>
+						</lightning-layout-item>
+						<lightning-layout-item  size="2"  class="card-headings">
+								<p>Manager Comment</p>
+						</lightning-layout-item>
+				</lightning-layout>
+				<template lwc:if={noRecordFound}>
+				<div class="slds-align_absolute-center slds-p-around_small slds-text-heading_medium">
+						No Records Found
+				</div>
+						</template>
+		</div>-->
+
+		<!--**************************************** RECORDS ***************************************** -->	
+
+		<!--	<div>
+				<template for:each={myleaves} for:item="datarec">
+						<lightning-layout key={datarec.Id} multiple-rows class="card-data ">
+								
+								<lightning-layout-item size="2" class="card-heading">
+										<div style="margin:10px 0px 0px 10px;" class="slds-grid slds-wrap">
+												<div class="slds-col slds-size_4-of-12 slds-p-around_medium" >
+												
+														<lightning-icon class="slds-icon_container slds-icon-standard-user slds-avatar slds-avatar_circle"
+																						variant="circle" icon-name="utility:user"></lightning-icon>
+												</div>
+												<div class="slds-col slds-size_8-of-12 " style="margin-top:4px;" > 
+														{datarec.Name} </div>  
+										</div>
+								</lightning-layout-item>
+
+								<lightning-layout-item size="2" class="card-heading">
+										<div><p>{datarec.From_Date__c} </p>
+										</div>  
+								</lightning-layout-item>
+								<lightning-layout-item size="2" class="card-heading">
+										<div><p>{datarec.To_Date__c} </p>
+										</div>  
+								</lightning-layout-item>
+								<lightning-layout-item size="2" class="card-heading">
+										<div><p>{datarec.Reason__c} </p>
+										</div>  
+								</lightning-layout-item>
+								<lightning-layout-item size="2" class="card-heading">
+										<div><p>{datarec.Status__c} </p>
+										</div>  
+								</lightning-layout-item>
+								<lightning-layout-item size="2" class="card-heading">
+										<div><p>{datarec.Manager_Comment__c} </p>
+										</div>  
+								</lightning-layout-item>
+								<lightning-layout-item size ="1">
+								</lightning-layout-item>
+						</lightning-layout>
+				</template>
+		</div>-->
+</template>
