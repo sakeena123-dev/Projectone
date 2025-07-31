@@ -4,6 +4,7 @@ import getMyLeaves from '@salesforce/apex/LeaveRequstController.getMyLeaves';
 export default class MyLeaves extends LightningElement {
 		columns=[
 				{ label:'name', fieldname: 'Name' , type:'text'},
+				{ label:'Number', fieldname: 'Number' , type:'text'},
 				{label:'From Date', fieldname:'From_Date__c' , type:'text'},
 				{label:'To Date', fieldname:'To_Date__c' , type:'text'},
 				{label:'Reason', fieldname:'Reason__c' , type:'text'},
